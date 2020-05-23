@@ -1,0 +1,51 @@
+.toolbar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 8px;
+}
+
+.paper {
+    padding: 15px;
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
+}
+
+.drawer-paper {
+    position: relative;
+    white-space: nowrap;
+    width: 340px;
+
+    .MuiDrawer-paper {
+        width: 340px;
+    }
+}
+
+.wrap{
+    height:auto;
+    min-height:100%;
+}
+  
+.wrap:after {
+    content: "";
+    display: block;
+    height: 100px; 
+}
+  
+.footer{
+    margin-top:-270px;
+    height: 270px;
+    color:#000;
+    position:relative;
+    line-height:180%;
+    padding:0 10px;
+    z-index: 2000;
+    align-items: end;
+}
+
+.tree-container {
+    max-height: calc(100vh - 350px);
+    min-height: calc(100vh - 350px);
+    overflow-y: scroll;
+}

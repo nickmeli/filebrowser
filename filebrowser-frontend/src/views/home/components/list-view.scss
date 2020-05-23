@@ -1,0 +1,13 @@
+.list-container {
+    max-height: calc(100vh - 450px);
+    min-height: calc(100vh - 450px);
+    overflow-y: auto;
+}
+
+.list-row {
+    width: 98% !important;
+}
+
+.clickable {
+    cursor: pointer;
+}

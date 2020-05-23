@@ -1,0 +1,16 @@
+.container {
+    padding: 15px;
+    display: 'flex';
+    overflow: 'auto';
+    flex-direction: 'column';
+    min-height: calc(100vh - 400px);
+    max-height: calc(100vh - 400px);
+}
+
+.chart-container {
+    padding: 15px;
+    display: 'flex';
+    overflow: 'auto';
+    flex-direction: 'column';
+    min-height: 250px;
+}
