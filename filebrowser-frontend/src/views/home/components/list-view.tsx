@@ -57,7 +57,7 @@ export default class ListView extends React.Component<Props> {
                                 </div>
                             </Grid>
                             <Grid item xs={5}>
-                                <div>{item.filepath}</div>
+                                <div className="path-class">{item.filepath}</div>
                             </Grid>
                             <Grid item xs={2}>
                                 <div>{Utils.convertBytes(item.filesize)}</div>

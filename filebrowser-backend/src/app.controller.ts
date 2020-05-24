@@ -35,9 +35,7 @@ export class AppController {
         folderpath: request.path,
         subfolders: retval
       }
-      setTimeout(() => {
-        res.status(HttpStatus.OK).send([root]);
-      }, 2000);
+      res.status(HttpStatus.OK).send([root]);
     }
   }
 
@@ -48,9 +46,7 @@ export class AppController {
     }
     else {
       const contents: IFile[] = this.fsService.getFiles(request.folderpath);
-      setTimeout(() => {
-        res.status(HttpStatus.OK).send(contents);
-      }, 2000);
+      res.status(HttpStatus.OK).send(contents);
     }
   }
 
