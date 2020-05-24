@@ -60,13 +60,14 @@ class ChartViewComponent extends React.Component<Props> {
 
     get filesByType(): FilesData {
         const labels: string[] = [];
+        const color: string = Utils.getRandomColor();
         const dataset: BarDataset = {
             label: 'File count',
-            backgroundColor: Utils.getRandomColor(),
-            borderColor: Utils.getRandomColor(),
+            backgroundColor: color,
+            borderColor: color,
             borderWidth: 1,
-            hoverBackgroundColor: Utils.getRandomColor(),
-            hoverBorderColor: Utils.getRandomColor(),
+            hoverBackgroundColor: color,
+            hoverBorderColor: color,
             data: []
         };
 
@@ -94,7 +95,6 @@ class ChartViewComponent extends React.Component<Props> {
             dataset.data.push(from(this.props.contents).where(x => x.filetype === t).sum(x => x.filesize));
             dataset.backgroundColor.push(Utils.getRandomColor());
             dataset.hoverBackgroundColor.push(Utils.getRandomColor());
-            // readable: Utils.convertBytes(from(this.props.contents).where(x => x.filetype == t).sum(x => x.filesize))
         });
 
         return {

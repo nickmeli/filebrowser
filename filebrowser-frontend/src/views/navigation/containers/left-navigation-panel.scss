@@ -34,20 +34,21 @@
 }
   
 .footer{
-    margin-top:-80px;
-    height: 80px;
+    margin-top:-100px;
+    height: 100px;
     color:#000;
     position:relative;
     line-height:180%;
-    padding:0 10px;
+    padding:0 20px;
     z-index: 2000;
     align-items: end;
 }
 
 .tree-container {
-    max-height: calc(100vh - 350px);
-    min-height: calc(100vh - 350px);
+    max-height: calc(100vh - 360px);
+    min-height: calc(100vh - 360px);
     overflow-y: scroll;
+    padding: 20px;
 }
 
 .logo {
