@@ -3,7 +3,6 @@ import { IFetchContentsResponse, IRootFolderResponse } from "../../../shared/mod
 import { IApplicationState } from '../../../state';
 import { connect } from "react-redux";
 import { Utils } from "../../../providers/utils";
-import Alert from '@material-ui/lab/Alert';
 
 interface Props {
     contents: IFetchContentsResponse[];
@@ -27,7 +26,7 @@ class LeftFooterComponent extends React.Component<Props> {
         if (this.props.contents && this.props.contents.length > 0) {
             return (
                 <div>
-                    <b>Total Files Size:</b> {Utils.convertBytes(this.calculateTotalSize())}
+                    <b>Total File Size:</b> {Utils.convertBytes(this.calculateTotalSize())}
                 </div>
             );
         }
@@ -60,10 +59,6 @@ class LeftFooterComponent extends React.Component<Props> {
     render () {
         return (
             <div>
-                {this.props.contents.length > 0 && 
-                <Alert severity="info">
-					Double click file to download.
-				</Alert>}
                 <div>
                     {this.totalFiles()}
                 </div>

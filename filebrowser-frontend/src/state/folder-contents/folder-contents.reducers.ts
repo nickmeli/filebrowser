@@ -13,7 +13,8 @@ export const folderContentsReducer = (
 	action: Action<TypeConstant> & PayloadAction<TypeConstant, IFetchContentsResponse[]>
 ): IFolderContentsState => {
 	switch (action.type) {
-		case FolderContentsActionTypes.FETCH_CONTENTS: {
+		case FolderContentsActionTypes.FETCH_CONTENTS:
+		case FolderContentsActionTypes.FETCH_CONTENTS_FOLDER: {
 			return { ...state, loading: true };
 		}
 		case FolderContentsActionTypes.FETCH_CONTENTS_SUCCESS: {
@@ -21,7 +22,7 @@ export const folderContentsReducer = (
 		}
 		case FolderContentsActionTypes.FETCH_CONTENTS_FAILURE: {
 			return {
-				...state
+				...state, loading: false
 			};
 		}
 		default:

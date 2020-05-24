@@ -6,7 +6,7 @@ The backend is in Nest.
 # Back end
 ## Install Nest.js
 
-`npm i -g @nestjs/cli`
+`npm i [-g] @nestjs/cli`
 
 ## Install backend dependencies
 
@@ -21,7 +21,7 @@ The backend is in Nest.
 
 ## Install dependencies
 
-`cd "project directory"/filebrowser/frontend`
+`cd "project directory"/filebrowser-frontend`
 `npm install` or `yarn install`
 
 ## Run filebrowser

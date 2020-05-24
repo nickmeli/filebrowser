@@ -33,6 +33,7 @@ class LeftNavigationPanel extends React.Component<Props> {
                         variant="permanent"
                         className='paper drawer-paper'>
                         <div className='toolbar-icon'>
+                            <span className="logo">File browser</span>
                             <IconButton onClick={this.openSettings}>
                                 <FolderIcon />
                             </IconButton>

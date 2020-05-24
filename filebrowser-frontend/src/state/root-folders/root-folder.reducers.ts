@@ -26,7 +26,7 @@ export const rootFoldersReducer = (
 		}
 		case RootFoldersActionTypes.FETCH_ROOT_FOLDERS_FAILURE: {
 			return {
-				...state
+				...state, loading: false
 			};
         }
         case RootFoldersActionTypes.SET_ROOT_FOLDER: {

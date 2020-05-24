@@ -3,7 +3,7 @@ import { IFetchContentsResponse } from "../../../shared/models/ServereResponseSc
 import Grid from '@material-ui/core/Grid';
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
 import { downloadStarted } from '../../../state/download-file/download-file.actions';
-import './thumb-view';
+import './thumb-view.scss';
 
 interface Props {
 	contents: IFetchContentsResponse[];
@@ -52,9 +52,9 @@ export default class ThumbView extends React.Component<Props> {
 	render() {
         console.log(this.gridItems);
 		return (
-			<div>
+			<div className="thumb-container">
 				{this.props.contents && this.gridItems.map((item: IFetchContentsResponse[], index) => (
-					<Grid container spacing={3} key={index}>
+					<Grid container spacing={3} key={index} className="thumb-row">
 						{this.renderRow(item)}
 					</Grid>
 				))}

@@ -1,3 +1,13 @@
 .clickable {
     cursor: pointer;
 }
+
+.thumb-container {
+    max-height: calc(100vh - 510px);
+    min-height: calc(100vh - 510px);
+    overflow-y: auto;
+}
+
+.thumb-row {
+    width: 98% !important;
+}

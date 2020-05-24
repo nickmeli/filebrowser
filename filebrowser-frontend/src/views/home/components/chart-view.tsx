@@ -61,7 +61,7 @@ class ChartViewComponent extends React.Component<Props> {
     get filesByType(): FilesData {
         const labels: string[] = [];
         const dataset: BarDataset = {
-            label: 'Files count',
+            label: 'File count',
             backgroundColor: Utils.getRandomColor(),
             borderColor: Utils.getRandomColor(),
             borderWidth: 1,

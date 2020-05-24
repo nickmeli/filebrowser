@@ -10,6 +10,7 @@ import FolderIcon from '@material-ui/icons/Folder';
 import { IFilterState } from "../../../state/files-filter/files-filter.types";
 import { downloadStarted } from '../../../state/download-file/download-file.actions';
 import Notifications from 'react-notification-system-redux';
+import './item-list.scss';
 
 interface Props {
 	contents: IFetchContentsResponse[];
@@ -17,7 +18,7 @@ interface Props {
 	filter: IFilterState;
 	notifications: any;
 	getContents: typeof fetchFolderContents;
-    downloadFile: typeof downloadStarted;
+	downloadFile: typeof downloadStarted;
 }
 
 class ItemList extends React.Component<Props> {
@@ -27,8 +28,8 @@ class ItemList extends React.Component<Props> {
 
 	get filteredContent(): IFetchContentsResponse[] {
 		return this.props.contents.filter(f =>
-						f.filename.includes(this.props.filter.filter)
-						&& (!this.props.filter.type || this.props.filter.type === f.filetype));
+			f.filename.includes(this.props.filter.filter)
+			&& (!this.props.filter.type || this.props.filter.type === f.filetype));
 	}
 
 	getViewByType = () => {
@@ -45,7 +46,7 @@ class ItemList extends React.Component<Props> {
 			return (
 				<Alert severity="info">
 					<ul>
-						<li>Click folder icon (top left) <FolderIcon fontSize="small" /> to set the root directory path.</li>
+						<li>Click folder icon (top left) <FolderIcon fontSize="small" className="info-class-icon" /> to set the root directory path.</li>
 						<li>A list of directories will appear on the left pane.</li>
 						<li>By clicking a directory on the left pane file contents will appear on central pane.</li>
 					</ul>
@@ -59,19 +60,23 @@ class ItemList extends React.Component<Props> {
 
 	render() {
 		const style = {
-			NotificationItem: { // Override the notification item
-			  DefaultStyle: { // Applied to every notification, regardless of the notification level
-				margin: '10px 5px 2px 1px'
-			  },
-	   
-			  success: { // Applied only to the success notification item
-				color: 'red'
-			  }
+			NotificationItem: {
+				DefaultStyle: {
+					margin: '10px 5px 2px 1px'
+				},
+
+				success: {
+					color: '#175E0B'
+				}
 			}
-		  };
+		};
 
 		return (
 			<div>
+				{this.props.contents.length > 0 &&
+					<Alert severity="info" className="alert-holder">
+						Double click file to download.
+				</Alert>}
 				{this.getHelperAlert()}
 				<Notifications
 					notifications={this.props.notifications}
