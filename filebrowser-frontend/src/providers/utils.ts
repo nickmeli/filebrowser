@@ -4,13 +4,13 @@ export class Utils {
     static convertBytes(bytes: number): string {
         const sizes = ["Bytes", "KB", "MB", "GB", "TB"]
 
-        if (bytes == 0) {
+        if (bytes === 0) {
             return "0 B"
         }
 
         const i = Math.ceil(Math.floor(Math.log(bytes) / Math.log(1024)))
 
-        if (i == 0) {
+        if (i === 0) {
             return bytes + " " + sizes[i]
         }
 

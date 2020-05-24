@@ -1,8 +1,5 @@
 import React from "react";
 import { IFetchContentsResponse } from "../../../shared/models/ServereResponseSchema";
-import { fetchFolderContents } from '../../../state/folder-contents/folder-contents.actions';
-import { IApplicationState } from '../../../state';
-import { connect } from "react-redux";
 import Grid from '@material-ui/core/Grid';
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
 import { downloadStarted } from '../../../state/download-file/download-file.actions';
@@ -14,10 +11,6 @@ interface Props {
 }
 
 export default class ThumbView extends React.Component<Props> {
-	constructor(props: Props) {
-		super(props);
-	}
-
 	componentDidMount() {
     }
     

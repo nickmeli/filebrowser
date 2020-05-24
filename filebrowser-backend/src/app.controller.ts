@@ -24,20 +24,30 @@ export class AppController {
   }
 
   @Post('fetchrootfolders')
-  fetch_root_folders(@Body() request: { path: string }) {
-    const retval = this.fsService.getFolderTree(request.path);
-    const root: IFolder = {
-      foldername: path.basename(request.path),
-      folderpath: request.path,
-      subfolders: retval
+  fetch_root_folders(@Body() request: { path: string }, @Res() res: Response) {
+    if (!fs.existsSync(request.path)) {
+      res.status(HttpStatus.NOT_FOUND).send();
     }
-    return [root];
+    else {
+      const retval = this.fsService.getFolderTree(request.path);
+      const root: IFolder = {
+        foldername: path.basename(request.path),
+        folderpath: request.path,
+        subfolders: retval
+      }
+      res.status(HttpStatus.OK).send([root]);
+    }
   }
 
   @Post('fetchfoldercontents')
-  post_fetch_folder_contents(@Body() request: { folderpath: string }) {
-    const contents: IFile[] = this.fsService.getFiles(request.folderpath);
-    return contents;
+  post_fetch_folder_contents(@Body() request: { folderpath: string }, @Res() res: Response) {
+    if (!fs.existsSync(request.folderpath)) {
+      res.status(HttpStatus.NOT_FOUND).send();
+    }
+    else {
+      const contents: IFile[] = this.fsService.getFiles(request.folderpath);
+      res.status(HttpStatus.OK).send(contents);
+    }
   }
 
   @Post('file')

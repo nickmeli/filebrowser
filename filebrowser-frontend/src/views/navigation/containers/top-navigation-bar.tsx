@@ -9,13 +9,11 @@ import { IApplicationState } from '../../../state';
 import { connect } from "react-redux";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import MenuIcon from '@material-ui/icons/Menu';
 import './top-navigation-bar.scss';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
-import { fileFilterChanged, fileFilterDispached } from '../../../state/files-filter/files-filter.actions';
+import { fileFilterDispached } from '../../../state/files-filter/files-filter.actions';
 
 interface Props {
     rootPath: string;

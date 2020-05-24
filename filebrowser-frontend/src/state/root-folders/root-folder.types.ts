@@ -1,4 +1,3 @@
-import { IMetaAction } from '..';
 import { IRootFolderResponse } from '../../shared/models/ServereResponseSchema';
 
 export interface IRootFoldersState {

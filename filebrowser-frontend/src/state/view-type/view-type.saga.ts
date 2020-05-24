@@ -1,4 +1,4 @@
-import { all, call, fork, put, takeEvery } from "redux-saga/effects";
+import { all, fork, put, takeEvery } from "redux-saga/effects";
 import { IMetaAction } from "..";
 import { setViewtype } from "./view-type.actions";
 import { ViewTypeActionTypes } from "./view-type.types";

@@ -1,11 +1,8 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import { IFetchContentsResponse } from "../../../shared/models/ServereResponseSchema";
 import { IApplicationState } from '../../../state';
 import { connect } from "react-redux";
 import Grid from '@material-ui/core/Grid';
-import {
-    BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
-} from 'recharts';
 import { from } from 'linq';
 import { Utils } from "../../../providers/utils";
 import { filterFileTypeChanged } from '../../../state/files-filter/files-filter.actions';
@@ -42,46 +39,7 @@ interface FileSize {
     datasets: PieDataset[];
 }
 
-const data = {
-	labels: [
-		'Red',
-		'Blue',
-		'Yellow'
-	],
-	datasets: [{
-		data: [300, 50, 100],
-		backgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		],
-		hoverBackgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		]
-	}]
-};
-
 class ChartViewComponent extends React.Component<Props> {
-    data = {
-        labels: [],
-        datasets: [
-          {
-            label: 'Files count',
-            backgroundColor: 'rgba(255,99,132,0.2)',
-            borderColor: 'rgba(255,99,132,1)',
-            borderWidth: 1,
-            hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-            hoverBorderColor: 'rgba(255,99,132,1)',
-            data: []
-          }
-        ]
-    };
-
-    constructor(props: Props) {
-        super(props);
-    }
 
     clickFilesChart = (event: any) => {
         // this.props.typeChanged(event.activeLabel);
@@ -114,7 +72,7 @@ class ChartViewComponent extends React.Component<Props> {
 
         this.types.forEach(t => {
             labels.push(t);
-            dataset.data.push(from(this.props.contents).count(x => x.filetype == t));
+            dataset.data.push(from(this.props.contents).count(x => x.filetype === t));
         });
         
         return {
@@ -133,7 +91,7 @@ class ChartViewComponent extends React.Component<Props> {
 
         this.types.forEach(t => {
             labels.push(t);
-            dataset.data.push(from(this.props.contents).where(x => x.filetype == t).sum(x => x.filesize));
+            dataset.data.push(from(this.props.contents).where(x => x.filetype === t).sum(x => x.filesize));
             dataset.backgroundColor.push(Utils.getRandomColor());
             dataset.hoverBackgroundColor.push(Utils.getRandomColor());
             // readable: Utils.convertBytes(from(this.props.contents).where(x => x.filetype == t).sum(x => x.filesize))

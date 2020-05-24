@@ -22,6 +22,7 @@ import { selectedFolderReducer } from './selected-folder/selected-folder.reducer
 import { IDownloadState } from "./download-file/download-file.types";
 import { downloadReducer } from './download-file/download-file.reducers';
 import downloadSaga from './download-file/download-file.saga';
+import { reducer as notifications } from 'react-notification-system-redux';
 
 interface IMeta {
 	method: 'get' | 'post';
@@ -42,6 +43,7 @@ export interface IApplicationState {
     filter: IFilterState;
     selectedFolder: ISelectedFolderState;
     download: IDownloadState;
+    notifications: any;
 }
 
 export interface IMetaAction extends MetaAction<TypeConstant, IMeta> {}
@@ -55,6 +57,7 @@ export const rootReducer = combineReducers<IApplicationState>({
     filter: fileFilterReducer,
     selectedFolder: selectedFolderReducer,
     download: downloadReducer,
+    notifications: notifications,
 });
 
 export function* rootSaga() {

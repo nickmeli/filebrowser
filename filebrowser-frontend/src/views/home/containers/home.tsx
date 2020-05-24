@@ -1,6 +1,4 @@
-import React, { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { IApplicationState } from "../../../state";
+import React from "react";
 import ItemList from '../components/item-list';
 import Paper from '@material-ui/core/Paper';
 import './home.scss';

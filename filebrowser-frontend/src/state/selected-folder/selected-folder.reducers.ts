@@ -1,7 +1,6 @@
 import { Action, PayloadAction, TypeConstant } from "typesafe-actions";
 import { IRootFolderResponse } from "../../shared/models/ServereResponseSchema";
 import { ISelectedFolderState, SelectedFolderActionTypes } from "./selected-folder.types";
-import { IMetaAction } from "..";
 
 export const initialState: ISelectedFolderState = {
     selectedFolder: null

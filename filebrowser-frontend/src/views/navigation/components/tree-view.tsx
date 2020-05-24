@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';
 import { TreeView } from '@material-ui/lab';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeItem from '@material-ui/lab/TreeItem';
-import { IRootFoldersState } from "../../../state/root-folders/root-folder.types";
 import { IRootFolderResponse } from "../../../shared/models/ServereResponseSchema";
 import { IApplicationState } from '../../../state';
 import { connect } from "react-redux";

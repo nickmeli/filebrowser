@@ -3,26 +3,24 @@ import { IFetchContentsResponse } from "../../../shared/models/ServereResponseSc
 import { fetchFolderContents } from '../../../state/folder-contents/folder-contents.actions';
 import { IApplicationState } from '../../../state';
 import { connect } from "react-redux";
-import Grid from '@material-ui/core/Grid';
 import ListView from './list-view';
 import ThumbView from './thumb-view';
 import Alert from '@material-ui/lab/Alert';
 import FolderIcon from '@material-ui/icons/Folder';
 import { IFilterState } from "../../../state/files-filter/files-filter.types";
 import { downloadStarted } from '../../../state/download-file/download-file.actions';
+import Notifications from 'react-notification-system-redux';
 
 interface Props {
 	contents: IFetchContentsResponse[];
 	viewType: string;
 	filter: IFilterState;
+	notifications: any;
 	getContents: typeof fetchFolderContents;
     downloadFile: typeof downloadStarted;
 }
 
 class ItemList extends React.Component<Props> {
-	constructor(props: Props) {
-		super(props);
-	}
 
 	componentDidMount() {
 	}
@@ -43,7 +41,7 @@ class ItemList extends React.Component<Props> {
 	}
 
 	getHelperAlert = () => {
-		if (!this.props.contents || this.props.contents.length == 0) {
+		if (!this.props.contents || this.props.contents.length === 0) {
 			return (
 				<Alert severity="info">
 					<ul>
@@ -60,8 +58,26 @@ class ItemList extends React.Component<Props> {
 	}
 
 	render() {
+		const style = {
+			NotificationItem: { // Override the notification item
+			  DefaultStyle: { // Applied to every notification, regardless of the notification level
+				margin: '10px 5px 2px 1px'
+			  },
+	   
+			  success: { // Applied only to the success notification item
+				color: 'red'
+			  }
+			}
+		  };
+
 		return (
-			this.getHelperAlert()
+			<div>
+				{this.getHelperAlert()}
+				<Notifications
+					notifications={this.props.notifications}
+					style={style}
+				/>
+			</div>
 		);
 	};
 }
@@ -71,6 +87,7 @@ function mapStateToProps(state: IApplicationState) {
 		contents: state.contents.contents,
 		viewType: state.viewType.viewType,
 		filter: state.filter,
+		notifications: state.notifications,
 	};
 }
 

@@ -5,7 +5,6 @@ import { HomeContainer } from './views/home/containers/home';
 import { store } from "./state";
 import { Provider } from "react-redux";
 
-
 const App: React.FC = () => {
   return (
     <Provider store={store}>

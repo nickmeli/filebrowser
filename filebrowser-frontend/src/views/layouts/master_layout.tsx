@@ -1,16 +1,9 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
 import { withStyles } from '@material-ui/core/styles';
 import { WithStyles, createStyles } from '@material-ui/core';
-// import { mainListItems, secondaryListItems } from './listItems';
-// import Chart from './Chart';
-// import Deposits from './Deposits';
-// import Orders from './Orders';
-import LeftNavigationPanel from '../navigation/containers/left-navigation-panrel';
+import LeftNavigationPanel from '../navigation/containers/left-navigation-panel';
 import TopNavigationComponent from '../navigation/containers/top-navigation-bar';
 
 const drawerWidth: number = 340;

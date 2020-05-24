@@ -12,10 +12,7 @@ interface Props {
 }
 
 export default class ListView extends React.Component<Props> {
-    constructor(props: Props) {
-        super(props);
-    }
-
+    
     componentDidMount() {
     }
 

@@ -1,8 +1,6 @@
-import React, { useCallback, useEffect, RefObject } from "react";
-import { bindActionCreators, Dispatch } from 'redux'
+import React from "react";
 import TreeViewComponent from '../components/tree-view';
 import { fetchRootFolders, callSetDialog } from '../../../state/root-folders/root-folder.actions';
-import { RootFoldersActionTypes } from '../../../state/root-folders/root-folder.types';
 import { connect } from "react-redux";
 import { IApplicationState } from '../../../state';
 import Divider from '@material-ui/core/Divider';
@@ -19,10 +17,6 @@ interface Props {
 }
 
 class LeftNavigationPanel extends React.Component<Props> {
-
-    constructor(props: Props) {
-        super(props);
-    }
 
     componentDidMount() {
     }

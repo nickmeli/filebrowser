@@ -12,10 +12,6 @@ interface Props {
 
 class LeftFooterComponent extends React.Component<Props> {
 
-    constructor(props: Props) {
-        super(props);
-    }
-
     totalFiles = () => {
         if (this.props.contents && this.props.contents.length > 0) {
             return (
@@ -54,7 +50,7 @@ class LeftFooterComponent extends React.Component<Props> {
         if (this.props.selectedFolder && this.props.selectedFolder.subfolders) {
             return (
                 <div>
-                    <b>Total Files Size:</b> {this.props.selectedFolder.subfolders.length}
+                    <b>Total Folders:</b> {this.props.selectedFolder.subfolders.length}
                 </div>
             );
         }

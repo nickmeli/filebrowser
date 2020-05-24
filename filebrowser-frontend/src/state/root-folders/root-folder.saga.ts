@@ -4,12 +4,13 @@ import { serverApi } from "../providers/serverApi";
 import { fetchRootFoldersFailure, fetchRootFoldersSuccess, showSetDialog, hideSetDialog, setRootFolderPath, fetchRootFolders } from "./root-folder.actions";
 import { RootFoldersActionTypes } from "./root-folder.types";
 import { IRootFolderResponse } from "../../shared/models/ServereResponseSchema";
+import { success, error } from 'react-notification-system-redux';
 
 /**
  * @desc Business logic of effect.
  */
 function* handleFetch(action: IMetaAction): Generator {
-	try {
+    try {
         if (action.type === RootFoldersActionTypes.SET_DIALOG) {
             if (action.meta.data.show) {
                 yield put(showSetDialog(true));
@@ -29,16 +30,29 @@ function* handleFetch(action: IMetaAction): Generator {
                 action.meta.route,
                 action.meta.data
             );
-    
             yield put(fetchRootFoldersSuccess(res));
+            const notificationOpts = {
+                title: 'Root folder',
+                message: 'Folder retrieved successfully',
+                autoDismiss: 5,
+            };
+            yield put(success(notificationOpts));
         }
-	} catch (err) {
-		if (err instanceof Error) {
-			yield put(fetchRootFoldersFailure(err.stack!));
-		} else {
-			yield put(fetchRootFoldersFailure("An unknown error occured."));
-		}
-	}
+    } catch (err) {
+        const notificationOpts = {
+            title: 'Root folder load error',
+            message: '',
+            autoDismiss: 5,
+        };
+        if (err instanceof Error) {
+            yield put(fetchRootFoldersFailure(err.stack!));
+            notificationOpts.message = (err as Error).message;
+        } else {
+            yield put(fetchRootFoldersFailure('An unknown error occured.'));
+            notificationOpts.message = 'An unknown error occured.';
+        }
+        yield put(error(notificationOpts));
+    }
 }
 
 /**
@@ -54,5 +68,5 @@ function* watchFetchRequest(): Generator {
  * @desc saga init, forks in effects, other sagas
  */
 export default function* rootFoldersSaga() {
-	yield all([fork(watchFetchRequest)]);
+    yield all([fork(watchFetchRequest)]);
 }
