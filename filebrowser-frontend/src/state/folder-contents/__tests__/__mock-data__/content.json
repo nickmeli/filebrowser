@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "filename": "file 31",
+        "filepath": "path/to/folder3/file 1",
+        "filesize": 10,
+        "filetype": "pdf"
+    },
+    {
+        "id": 2,
+        "filename": "file 32",
+        "filepath": "path/to/folder3/file 2",
+        "filesize": 10,
+        "filetype": "pdf"
+    },
+    {
+        "id": 3,
+        "filename": "file 33",
+        "filepath": "path/to/folder3/file 3",
+        "filesize": 10,
+        "filetype": "pdf"
+    },
+    {
+        "id": 4,
+        "filename": "file 34",
+        "filepath": "path/to/folder3/file 4",
+        "filesize": 10,
+        "filetype": "pdf"
+    }
+]
