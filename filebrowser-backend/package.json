@@ -22,7 +22,7 @@
   "dependencies": {
     "@nestjs/common": "^7.0.1",
     "@nestjs/core": "^7.0.1",
-    "@nestjs/platform-express": "^7.0.1",
+    "@nestjs/platform-express": "^9.2.1",
     "@types/glob": "^7.1.1",
     "fs": "0.0.1-security",
     "glob": "^7.1.6",
